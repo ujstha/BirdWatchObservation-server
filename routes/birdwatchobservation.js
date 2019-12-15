@@ -1,32 +1,42 @@
 const experss = require("express");
 const router = experss.Router();
 const _ = require("lodash");
-const { birdWatchObservationSchemaValidator, Observation } = require("../models/birdwatchobservation");
-const FileUpload = require("../multerFileUpload");
+const {
+  birdWatchObservationSchemaValidator,
+  Observation,
+} = require("../models/birdwatchobservation");
+const FileUpload = require("../aws-multer");
 
+//fetching data
 router.get("/", async (req, res) => {
   const observations = await Observation.find(req.body.id);
   res.send(observations);
 });
 
-router.post('/', FileUpload.single('speciesImage'), (req, res, next) => {
-  const { error } = birdWatchObservationSchemaValidator(req.body); /* Validating input body */
-  if (error) return res.status(400).send(error.details[0].message);/* Validator error message if any error */
-  const url = req.protocol + '://' + req.get('host')
+router.post("/", FileUpload, (req, res) => {
+  const { error } = birdWatchObservationSchemaValidator(req.body); // Validating input body
+  if (error) return res.status(400).send(error.details[0].message); // Validator error message if any error
+  // const url = req.protocol + "://" + req.get("host"); // Createing URI
   // req.body.speciesImage = req.file.filename;
-
+  const imageName = req.file.key;
+  const imageLocation = req.file.location;
   const observation = new Observation({
-      speciesName: req.body.speciesName,
-      rarity: req.body.rarity,
-      notes: req.body.notes,
-      speciesImage: url + '/uploads/' + req.file.filename,
-      timestamp: 4545454545,
-      geoLatitude: 145424542,
-      geoLongitude: 2222222221
+    speciesName: req.body.speciesName,
+    rarity: req.body.rarity,
+    notes: req.body.notes,
+    speciesImage: imageLocation,
+    timestamp: 4545454545,
+    geoLatitude: 145424542,
+    geoLongitude: 2222222221,
   });
-
+  // Save the file name into database
   observation.save();
-  res.status(201).send([observation, 'Successful']);
+  // Sends the response of 201 with json objects.
+  res.status(201).json({
+    observation: observation,
+    imageName: imageName,
+    msg: "Added Successfully.",
+  });
 });
 
 module.exports = router;
