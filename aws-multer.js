@@ -1,3 +1,4 @@
+require("dotenv").config();
 const aws = require("aws-sdk");
 const multerS3 = require("multer-s3");
 const multer = require("multer");
@@ -6,8 +7,8 @@ const uuidv4 = require("uuid/v4");
 
 // File Upload method
 const s3 = new aws.S3({
-  accessKeyId: "AKIA4PNLYW26VI46AH4E",
-  secretAccessKey: "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",
+  accessKeyId: process.env.ACCESS_KEY_ID,
+  secretAccessKey: process.env.SECRET,
   Bucket: "birdwatchobservation-uploads",
 });
 
