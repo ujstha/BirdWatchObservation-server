@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
   res.send("This is testing page.");
 });
 
-app.use('/uploads', express.static('uploads')); // using static folder for file uploads
+// app.use('/uploads', express.static('uploads')); // using static folder for file uploads
 
 app.use("/api/birdwatchobservation", birdwatchobservation); // Creating api for birdwatchobservation route 
 
