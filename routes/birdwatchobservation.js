@@ -5,28 +5,11 @@ const {
   Observation,
 } = require("../models/birdwatchobservation");
 const FileUpload = require("../aws-multer");
-var ExifImage = require("exif").ExifImage;
 
 //fetching data
 router.get("/", async (req, res) => {
   const observations = await Observation.find(req.body.id);
-  const a = observations.map(observation => {
-    new ExifImage({ image: observation.speciesImage }, function(
-      error,
-      exifData
-    ) {
-      if (error) console.log("Error: " + error.message);
-      
-
-        res.json({
-          observation: observations,
-          exif: exifData,
-          image: observation.speciesImage,
-        });
-        console.log(req.get('host'))
-      
-    });
-  });
+  res.send(observations);
 });
 
 router.post("/", FileUpload, (req, res) => {
@@ -35,6 +18,8 @@ router.post("/", FileUpload, (req, res) => {
 
   const imageName = req.file.key;
   const imageLocation = req.file.location;
+
+  console.log(req.file.metadata)
 
   const observation = new Observation({
     speciesName: req.body.speciesName,
