@@ -38,7 +38,7 @@ CheckFileType = (file, cb) => {
   if (mimetype && extname) {
     return cb(null, true);
   } else {
-    cb("Please Upload file with .jpeg, .jpg, .png extensions.");
+    cb("Please Upload file with .jpeg, .jpg, .png extensions only.");
   }
 };
 
