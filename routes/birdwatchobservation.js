@@ -16,8 +16,7 @@ router.get("/", async (req, res) => {
 router.post("/", FileUpload, (req, res) => {
   const { error } = birdWatchObservationSchemaValidator(req.body); // Validating input body
   if (error) return res.status(400).send(error.details[0].message); // Validator error message if any error
-  // const url = req.protocol + "://" + req.get("host"); // Createing URI
-  // req.body.speciesImage = req.file.filename;
+
   const imageName = req.file.key;
   const imageLocation = req.file.location;
   const observation = new Observation({
