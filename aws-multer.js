@@ -17,9 +17,6 @@ const FileUpload = multer({
     s3: s3,
     bucket: "birdwatchobservation-uploads",
     acl: "public-read",
-    metadata: function (req, file, cb) {
-      cb(null, Object.assign({}, req.body));
-    },
     key: (req, file, cb) => {
       cb(null, uuidv4() + path.extname(file.originalname));
     },

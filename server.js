@@ -11,7 +11,7 @@ middleware(express, app); //middleware for cors controls
 DATABASECONNECT(); //creating database connection
 
 app.get("/", (req, res) => {
-  res.send("This is testing page.");
+  res.send(req.file);
 });
 
 // app.use('/uploads', express.static('uploads')); // using static folder for file uploads

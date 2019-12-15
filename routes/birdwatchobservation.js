@@ -19,7 +19,7 @@ router.post("/", FileUpload, (req, res) => {
   const imageName = req.file.key;
   const imageLocation = req.file.location;
 
-  console.log(req.file.metadata)
+  console.log(req.file)
 
   const observation = new Observation({
     speciesName: req.body.speciesName,
