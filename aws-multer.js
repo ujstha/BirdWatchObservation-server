@@ -5,10 +5,12 @@ const multer = require("multer");
 const path = require("path");
 const uuidv4 = require("uuid/v4");
 
+const env = process.env;
+
 // File Upload method
 const s3 = new aws.S3({
-  accessKeyId: process.env.ACCESS_KEY_ID,
-  secretAccessKey: process.env.SECRET,
+  accessKeyId: env.ACCESS_KEY_ID,
+  secretAccessKey: env.SECRET,
   Bucket: "birdwatchobservation-uploads",
 });
 
