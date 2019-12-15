@@ -9,7 +9,6 @@ const ExifExtractor = (req, res, next) => {
     req.body.geoLongitude = result.tags.GPSLongitude;
     req.body.timestamp = result.tags.DateTimeOriginal;
   } catch (error) {
-    console.log("Uploading Data was not found.");
     res.send("Error : Uploading Data was not found.")
   }
   CloudinaryUpload(req, res, req.file, next);

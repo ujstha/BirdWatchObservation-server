@@ -9,7 +9,7 @@ const birdWatchObservationSchema = new mongoose.Schema({
   timestamp: { type: Number },
   geoLatitude: { type: Number },
   geoLongitude: { type: Number },
-  createdDate: { type: Number, default: +new Date() },
+  createdDate: { type: Date, default: Date.now },
 });
 
 function birdWatchObservationSchemaValidator(observationDataValid) {
