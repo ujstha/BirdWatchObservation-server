@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Joi = require("joi");
 
 const birdWatchObservationSchema = new mongoose.Schema({
-  speciesName: { type: String },
+  speciesName: { type: String, uppercase: true },
   rarity: { type: String },
   notes: { type: String },
   speciesImage: { type: String },
