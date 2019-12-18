@@ -27,8 +27,8 @@ It runs the server in development mode using NODEMON.
 For this to run locally you need to 
 
 ## Create .env file On project Directory and 
-put following credentials
-MONGODB_URI=yourMlabDbUri
-CLOUDINARY_CLOUD_NAME=yourCloudinaryCloudName
-CLOUDINARY_API_KEY=yourCloudinaryApiKey
+put following credentials  <br />
+MONGODB_URI=yourMlabDbUri  <br />
+CLOUDINARY_CLOUD_NAME=yourCloudinaryCloudName  <br />
+CLOUDINARY_API_KEY=yourCloudinaryApiKey  <br />
 CLOUDINARY_API_SECRET=yourCloudinaryApiSecret
