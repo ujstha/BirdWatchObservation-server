@@ -1,34 +1,51 @@
-# BirdWatchObservation-server
-This project is a server-side for a mobile app #BirdWatchObservation.
-This project was created using NodeJS, ExpressJS and MongoDB(mLab).
-This project also uses Cloudinary for Image Uploading System and Extraction of Exif Data from images.
-This app is a progressive web app which means it can be opened without internet connection. This app has also been deployed as a web app.
-Open [https://birdwatchobservation.netlify.com/].
+## Bird Watch Observation 
+This project was created using Ionic Framework with ionic-react and capacitor. This is a hybrid application as well as progressive web application (the app will run without internet connection).<br />
+This app has also been deployed as a web app. <br />
+Open [https://birdwatchobservation.netlify.com/](https://birdwatchobservation.netlify.com/).
 
-## Available Scripts
+## Stacks used
 
+This is a hybrid application build on top of Ionic React Framework along with following stacks
+
+- [Ionic-react](https://ionicframework.com/docs/react)
+- [Capacitor](https://capacitor.ionicframework.com)
+- [Node](https://nodejs.org/en)
+- [mLab](https://mlab.com)
+- [Express](https://expressjs.com)
+- [Material-UI](https://material-ui.com)
+
+## Other requirements
+
+For this app to run locally, you should have following package installed in your device.<br />
+Links are provided to download and install the packages required.
+
+- [Cloudinary](https://cloudinary.com)
+- [Node](https://nodejs.org/en)
+- [mLab](https://www.mlab.com)
+
+## App Installation
+
+If you want run the app locally <br /> 
+Create .env file on project directory and provide following credentials 
+- MONGODB_URI=yourMlabDbUri  <br />
+- CLOUDINARY_CLOUD_NAME=yourCloudinaryCloudName  <br />
+- CLOUDINARY_API_KEY=yourCloudinaryApiKey  <br />
+- CLOUDINARY_API_SECRET=yourCloudinaryApiSecret
+
+## Scripts to run 
 In the project directory, you can run:
 
 ### `npm install`
-Installs the packages and dependecies
+- Installs the required packages and dependecies that are in `package.json`.
 
 ### `npm start`
+- Runs the app in the development mode using NODE.
+- Application will run on port [http://localhost:5000/api/](http://localhost:5000/api/).
 
-Runs the app in the development mode using NODE.<br />
-All your API can be fetched or posted to, through <br />
-## BASEURL 
-[http://localhost:5000/api/]
+## BASEURL for API
+[http://localhost:5000/api/](http://localhost:5000/api/)
+- All your API can be fetched or posted to, through above link. <br />
 
 ### `npm run dev`
-It runs the server in development mode using NODEMON.
-
-
-## NOTE : 
-For this to run locally you need to 
-
-## Create .env file On project Directory and 
-put following credentials  <br />
-MONGODB_URI=yourMlabDbUri  <br />
-CLOUDINARY_CLOUD_NAME=yourCloudinaryCloudName  <br />
-CLOUDINARY_API_KEY=yourCloudinaryApiKey  <br />
-CLOUDINARY_API_SECRET=yourCloudinaryApiSecret
+- Runs the server in development mode using NODEMON.
+- Application will run on port [http://localhost:5000/api/](http://localhost:5000/api/).
